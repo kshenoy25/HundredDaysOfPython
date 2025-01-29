@@ -11,8 +11,8 @@
 # Keep the score
 
 from turtle import Screen, Turtle
-from pongPaddle import Paddle_Left, Paddle_Right
-from pongBall import Ball
+from pong_paddle import Paddle_Left, Paddle_Right
+from pong_ball import Ball
 from scoreboard import Scoreboard
 import time
 

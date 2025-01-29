@@ -1,4 +1,4 @@
-from FunctionWithOutputs.functionOutputDemo import format_name
+from FunctionWithOutputs.function_output_demo import format_name
 
 
 def peoples_names(f_name, l_name):

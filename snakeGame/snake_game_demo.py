@@ -1,6 +1,6 @@
 from turtle import Screen
 
-from StudentHighScore.highScore import score
+from StudentHighScore.high_score import score
 from snake import Snake
 from food import Food
 from scoreboard import Scoreboard
