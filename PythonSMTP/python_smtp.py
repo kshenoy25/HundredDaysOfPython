@@ -1,7 +1,6 @@
 #import smtplib
 
-MY_EMAIL = "hailesbales1244@gmail.com"
-MY_PASSWORD = "ykanesagnzvjfonj"
+
 #with smtplib.SMTP("smtp.gmail.com") as connection:
 #    connection.starttls() # transport layer security designed to provide communications security over a computer network
 #    connection.login(user=my_email, password=my_password)
@@ -27,15 +26,19 @@ import smtplib
 import datetime as dt
 import random
 
+MY_EMAIL = "hailesbales1244@gmail.com"
+MY_PASSWORD = "ykanesagnzvjfonj"
+
 now = dt.datetime.now()
 weekday = now.weekday()
 
 if weekday == 1:
-    with open("quotes.txt") as quotes_file:
-        all_quotes = quotes_file.readlines()
+    with open("daily_quotes.txt") as quote_file:
+        all_quotes = quote_file.readlines()
         quote = random.choice(all_quotes)
 
     print(quote)
+
     with smtplib.SMTP("smtp.gmail.com") as connection:
         connection.starttls()
         connection.login(MY_EMAIL, MY_PASSWORD)
