@@ -44,5 +44,38 @@ def check_code(guess, real_code):
         color_counts[color] += 1
 
     for guess_color, real_color in zip(guess, real_code): # zip is going to combine arguments into tuples
+        if guess == real_color:
+            correct_pos += 1
+            color_counts[guess_color] -= 1
+
+    # ["G", "O", "O", "O"] real
+    # ["G", "G", "W", "W"]
+
+    for guess_color, real_color in zip(guess, real_code):
+        if guess_color in color_counts and color_counts[guess_color] > 0:
+            incorrect_pos += 1
+            color_counts[guess_color] -= 1
+
+    return correct_pos, incorrect_pos
+
+def game():
+    print(f"Welcome to Color Game! You have {NUM_TRIES} tries to guess the code...")
+    print("The valid colors are,", *COLORS)
+    code = generate_code()
+    for attempts in range(1, NUM_TRIES + 1):
+        # ask user to guess the code
+        guess = guess_code()
+        correct_pos, incorrect_pos = check_code(guess, code)
+
+        if correct_pos == CODE_LENGTH:
+            print(f"You guess the code in {attempts} tries.")
+            break
+
+        print(f"Correct positions: {correct_pos}, Incorrect positions: {incorrect_pos}")
+    else:
+        print("You ran out of tries, the code was:", *code) # print each individual element from the list
+
+if __name__ == "__main__": # directly runs the python file
+    game()
 
 
